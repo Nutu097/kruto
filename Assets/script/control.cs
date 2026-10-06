@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class control : MonoBehaviour
-{
+/*public class control : MonoBehaviour
+
 	[SerializeField] private Animator animator;
 	[SerializeField] private Rigidbody _rigidbody;
 	[SerializeField] private float _rotationSpeed;
@@ -10,7 +10,7 @@ public class control : MonoBehaviour
 	[SerializeField] private float _runSpeed = 5f;
 
 	private Vector3 _moveVector3;
-	
+	private Event_Bus _eventBus;
 
 
 	private bool _isRunning;
@@ -29,14 +29,14 @@ public class control : MonoBehaviour
 	private void Move()
 	{
 		float currentSpeed = _isRunning ? _runSpeed : _walkSpeed;
-		/*if (_isRunning )
+		if (_isRunning )
 		{
 			currentSpeed = _runSpeed;
 		}
 		else if (!_isRunning)
 		{
 			currentSpeed = _walkSpeed;
-		}*/
+		}
 		_moveVector3 = transform.forward * cordz;
 		if (_moveVector3.magnitude > 1f)
 		{
@@ -45,12 +45,12 @@ public class control : MonoBehaviour
 		_moveVector3 *= currentSpeed * Time.deltaTime;
 		_rigidbody.MovePosition(_moveVector3 + _rigidbody.position);
 
-		/*if (animator != null)
+		if (animator != null)
 		{
 			bool isMoving = cordx != 0 || cordz != 0;
 
 			animator.SetBool("run", isMoving && _isRunning);
-		}*/
+		}
 
 	}
 	private void OnEnable()
@@ -80,4 +80,4 @@ public class control : MonoBehaviour
 	{
 		Move();
 	}
-}
+}*/

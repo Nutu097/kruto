@@ -4,8 +4,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 	public static GameManager Instance;
-	public GameState currentGameState { get; private set; }= GameState.SYSTEM;
-	
+	public GameState currentGameState { get; private set; } = GameState.SYSTEM;
+	public Event_Bus eventBus { get; private set; }
+	[SerializeField] private my_input_manger inputManager;
+
 	private void Awake()
 	{
 		if (Instance != null)
@@ -15,6 +17,9 @@ public class GameManager : MonoBehaviour
 		}
 		DontDestroyOnLoad(this);
 		Instance = this;
+		
+		eventBus = new Event_Bus();
+		inputManager.Initialized(eventBus);
 		OnChangeScene(scene.GAME);
 	}
 	private void ChangeGameState(GameState newState)
@@ -28,6 +33,7 @@ public class GameManager : MonoBehaviour
  	SceneManager.LoadScene(name);
 	}
 }
+
 public enum GameState
 {
 	SYSTEM=0,
@@ -35,3 +41,4 @@ public enum GameState
 	MENU=2,
 	LOADING=3
 }
+
