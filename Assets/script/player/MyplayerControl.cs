@@ -59,6 +59,6 @@ public class MyplayerControl : MonoBehaviour
 	private void OnSpaceInput()
 	{
 		if (_isDead) return;
-		_moveController.GetSpaceInput();
+		
 	}
 }

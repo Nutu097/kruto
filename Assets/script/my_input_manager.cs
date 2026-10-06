@@ -6,15 +6,15 @@ public class my_input_manger : MonoBehaviour
 {
 	public static event Action OnSpacePressed;
 	private bool isshutfalkse = false;
-	private Event_Bus eventBus;
+	private Event_Bus _eventBus;
 	public static event Action<Vector2> OnLookPressed;
 
 	public static event Action<bool> OnShiftPressed;
 
 	public static event Action<bool> OnAttackPressed;
-	public void Initialized(Event_Bus eventBus)
+	public void Initialized(Event_Bus B)
 	{
-		eventBus = eventBus;
+		_eventBus = B;
 	}
 	public void OnSacePresde(CallbackContext input)
 	{
@@ -27,7 +27,7 @@ public class my_input_manger : MonoBehaviour
 	{
 
 		Vector2 move = input.ReadValue<Vector2>();
-		eventBus?.TriggerMove(move);
+		_eventBus?.TriggerMove(move);
 
 
 	}

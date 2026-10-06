@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ac68647053c24445ac29322f6c9c0a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimationController
+  _animator: {fileID: 4383003072661445346}
 --- !u!114 &850993805767289595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,9 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f7d1e34491da343aa55c82de2850ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMoveController
-  _rb: {fileID: 0}
-  _walkSpeed: 0
-  _runSpeed: 0
+  _rb: {fileID: 1452818999174726450}
+  _walkSpeed: 2.05
+  _runSpeed: 4.33
 --- !u!54 &1452818999174726450
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -241,6 +242,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3838279619445922464}
   m_SourcePrefab: {fileID: 100100000, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
+--- !u!95 &4383003072661445346 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5593195909026790557, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
+  m_PrefabInstance: {fileID: 8164049866005931647}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4383003072670512396 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5593195909017195379, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
