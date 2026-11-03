@@ -8,6 +8,7 @@ public class my_input_manger : MonoBehaviour
 	private bool isshutfalkse = false;
 	private Event_Bus _eventBus;
 	public static event Action<Vector2> OnLookPressed;
+	
 
 	public static event Action<bool> OnShiftPressed;
 
@@ -20,7 +21,7 @@ public class my_input_manger : MonoBehaviour
 	{
 		if (input.performed)
 		{
-			OnSpacePressed?.Invoke();
+			_eventBus?.OnSpaceTrigger();
 		}
 	}
 	public void OnMoveCallback(CallbackContext input)
@@ -47,8 +48,9 @@ public class my_input_manger : MonoBehaviour
 
 	public void OnLook(CallbackContext input)
 	{
-		Vector2 look = input.ReadValue<Vector2>();
-		OnLookPressed?.Invoke(look);
+		
+			Vector2 look = input.ReadValue<Vector2>();
+			_eventBus?.OnLookTrigger(look);
 	}
 	public void OnNext(CallbackContext input)
 	{
