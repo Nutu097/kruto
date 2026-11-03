@@ -8,6 +8,11 @@ public class Event_Bus
 	public event Action<bool> OnAttackPressed;
 	public event Action<bool> OnShiftPressed;
 	public event Action<Vector2> OnLookPressed;
+	public event Action <GameState> OnGameStateChanged;
+	public event Action <GameState> GameChangeRequest;
+	public event Action<UiState> OnUiStateChanged;
+	public event Action<UiState> UiChangeRequest;
+
 
 	public void TriggerMove(Vector2 data)
 	{
@@ -32,5 +37,21 @@ public class Event_Bus
 	public void OnLookTrigger(Vector2 data)
 	{
 		OnLookPressed?.Invoke(data);
+	}
+	public void OnGameStateChangeTrigger(GameState newState)
+	{
+		OnGameStateChanged?.Invoke(newState);
+	}
+	public void OnGameChangeRequestTrigger(GameState newState)
+	{
+		GameChangeRequest?.Invoke(newState);
+	}
+	public void OnUiStateChangeTrigger(UiState newState)
+	{
+		OnUiStateChanged?.Invoke(newState);
+	}
+	public void OnUiChangeRequestTrigger(UiState newState)
+	{
+		UiChangeRequest?.Invoke(newState);
 	}
 }   

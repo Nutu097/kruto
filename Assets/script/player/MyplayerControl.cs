@@ -15,7 +15,7 @@ public class MyplayerControl : MonoBehaviour
 
 	private void OnEnable()
 	{
-		_eventBus = GameManager.Instance.eventBus;
+		_eventBus = GameManager.Instance._eventBus;
 
 		_moveController.Initialize(_animationController);
 
