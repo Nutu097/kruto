@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ManagerUi : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class ManagerUi : MonoBehaviour
 	public void Init(Event_Bus eventBus)
 	{
 		_eventBus = eventBus;
-		_eventBus.UiChangeRequest += UiChangeRequest;
+		
 		_eventBus.OnGameStateChanged += OnGameStateChanged;
 	}
 	
@@ -29,15 +30,37 @@ public class ManagerUi : MonoBehaviour
 		switch (newState)
 		{
 			case UiState.GAME:
+			UiChangeRequest(UiState.GAME);
 				break;
 			case UiState.MENU:
+				UiChangeRequest(UiState.MENU);
 				break;
 			case UiState.LOADING:
+				UiChangeRequest(UiState.LOADING); 
 				break;
 		}
 		_currentUiState = newState;
 		_eventBus.OnUiStateChangeTrigger(newState);
 	}
+	private void GetButtonTypes(ButtonType buttonType)
+	{
+	GameState state = GameManager.Instance.currentGameState;
+		switch (buttonType)
+		{
+			case ButtonType.GAME:
+			if (state == GameState.MENU)
+			{
+			_eventBus.OnGameStateChangeTrigger(GameState.GAME);
+				}
+				break;
+			case ButtonType.MENU:
+				break;
+			case ButtonType.SETTINGS:
+			UiChangeRequest(UiState.SYSTEM); 
+				break;
+		}
+	}
+	
 }
 public enum UiState
 {
