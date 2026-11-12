@@ -8,7 +8,7 @@ public class ManagerUi : MonoBehaviour
 	public void Init(Event_Bus eventBus)
 	{
 		_eventBus = eventBus;
-		
+		_eventBus.OnButtonClick += GetButtonTypes;
 		_eventBus.OnGameStateChanged += OnGameStateChanged;
 	}
 	
@@ -50,7 +50,7 @@ public class ManagerUi : MonoBehaviour
 			case ButtonType.GAME:
 			if (state == GameState.MENU)
 			{
-			_eventBus.OnGameStateChangeTrigger(GameState.GAME);
+			_eventBus.OnGameChangeRequestTrigger(GameState.GAME);
 				}
 				break;
 			case ButtonType.MENU:
