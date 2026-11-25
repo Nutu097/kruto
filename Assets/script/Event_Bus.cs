@@ -13,6 +13,7 @@ public class Event_Bus
 	public event Action<UiState> OnUiStateChanged;
 	
 	public event Action<ButtonType> OnButtonClick;
+	public event Action OnInteractPressed;
 
 
 	public void TriggerMove(Vector2 data)
@@ -29,7 +30,10 @@ public class Event_Bus
 	{
 		OnShiftPressed?.Invoke(isPressed);
 	}
-
+	public void OnInteractTrigger( )
+	{
+		OnInteractPressed?.Invoke();
+	}
 	public void OnAttackTrigger(bool isPressed)
 	{
 		OnAttackPressed?.Invoke(isPressed);

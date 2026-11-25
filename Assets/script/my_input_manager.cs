@@ -13,6 +13,7 @@ public class my_input_manger : MonoBehaviour
 	public static event Action<bool> OnShiftPressed;
 
 	public static event Action<bool> OnAttackPressed;
+
 	public void Initialized(Event_Bus B)
 	{
 		_eventBus = B;
@@ -32,6 +33,12 @@ public class my_input_manger : MonoBehaviour
 
 
 	}
+	public void OnInteractCallback(CallbackContext input)
+	{
+		
+		if (input.started) _eventBus.OnInteractTrigger();
+	}
+
 	public void OnAttackCallback(CallbackContext input)
 	{
 

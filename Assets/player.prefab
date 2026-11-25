@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 8500820903133544740}
   - component: {fileID: 1452818999174726450}
   - component: {fileID: 155896303111835420}
+  - component: {fileID: 2781478451145828534}
   m_Layer: 3
   m_Name: player
   m_TagString: Untagged
@@ -294,6 +295,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.8889629, y: 2.3727024, z: 1.2382102}
   m_Center: {x: 0.015584886, y: 1.1862231, z: -0.1383661}
+--- !u!114 &2781478451145828534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007399905724668507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a0efde7660472048a59c98d1f11f191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::iNTERACTOR
+  _interactDistance: 3
+  _interactableLayer:
+    serializedVersion: 2
+    m_Bits: 32768
+  _interactPoint: {fileID: 89776918926630439}
 --- !u!1 &4383003072670935328
 GameObject:
   m_ObjectHideFlags: 0

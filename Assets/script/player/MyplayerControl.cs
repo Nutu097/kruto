@@ -11,6 +11,8 @@ public class MyplayerControl : MonoBehaviour
 	[SerializeField] private PlayerMoveController _moveController;
 	[SerializeField] private PlayerShootController _shootController;
 	[SerializeField] private graund_detector _groundDetector;
+	[SerializeField] private INTERACTOR _interactor;
+	
 	
 
 	private void OnEnable()
@@ -24,6 +26,7 @@ public class MyplayerControl : MonoBehaviour
 		_eventBus.OnShiftPressed += OnShiftInput;
 		_eventBus.OnLookPressed += OnLookInput;
 		_eventBus.OnSpacePressed += OnSpaceInput;
+		_eventBus.OnInteractPressed += OnInteractInput;
 	}
 
 	private void OnDisable()
@@ -33,6 +36,7 @@ public class MyplayerControl : MonoBehaviour
 		_eventBus.OnShiftPressed -= OnShiftInput;
 		_eventBus.OnLookPressed -= OnLookInput;
 		_eventBus.OnSpacePressed -= OnSpaceInput;
+		_eventBus.OnInteractPressed -= OnInteractInput;
 	}
 
 	private void OnMoveInput(Vector2 data)
@@ -46,14 +50,18 @@ public class MyplayerControl : MonoBehaviour
 	if (_isDead) return;
 		_cameraController.RotateCamera(input);
 		_moveController.GetLookInput(input);
-		Debug.Log("Look input received: " + input);
+		
 	}
 
 	private void OnAttackInput(bool isPressed)
 	{
 		if (_isDead) return;
 	}
-
+	private void OnInteractInput()
+	{
+		if (_isDead) return;
+		_interactor.GetInteractInput();
+	}
 	private void OnShiftInput(bool isPressed)
 	{
 		if (_isDead) return;

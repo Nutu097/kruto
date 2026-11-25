@@ -44,7 +44,7 @@ public class PlayerMoveController : MonoBehaviour
 		{
 			moveY = _jumpForce;
 			_isJumpQeued = false;
-			Debug.Log("Jumping");
+			
 		}
 		Vector3 linearVelocity = new Vector3(0, moveY, 0)+ moveX ;
 		_rb.linearVelocity = linearVelocity ;
@@ -53,7 +53,7 @@ public class PlayerMoveController : MonoBehaviour
 	public void GetGraundInfo(bool T)
 	{
 		_isGrounded = T;
-		Debug.Log("Grounded: " + _isGrounded);
+		
 		if (!_isGrounded)
 		{
 			_isJumpQeued = false;
